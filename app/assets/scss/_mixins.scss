@@ -1,0 +1,72 @@
+/* fonts */
+@mixin roboto-light {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+}
+
+@mixin roboto-regular {
+	font-family: 'Roboto', sans-serif;
+	font-weight: normal;
+}
+
+@mixin roboto-bold {
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+}
+
+@mixin roboto-black {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 900;
+}
+
+/* font properties */
+@mixin font-props($size: false, $lh: false, $color: false) {
+	@if $size {
+		font-size: $size;
+	}
+	@if $lh {
+		line-height: $lh;
+	}
+	@if $color {
+		color: $color;
+	}
+}
+
+/* flex */
+@mixin flex($justify: space-between, $align: center, $direction: false, $wrap: false) {
+	display: flex;
+	justify-content: $justify;
+	align-items: $align;
+	@if $direction {
+		flex-direction: $direction;
+	}
+	@if $wrap{
+		flex-wrap: $wrap;
+	}
+}
+
+/* grid */
+@mixin grid($columns, $colgap, $rowgap, $rows: false) {
+	display: grid;
+	grid-template-columns: $columns;
+	grid-gap: $colgap $rowgap;
+	@if $rows {
+		grid-template-rows: $rows;
+	}
+}
+
+/* background */
+@mixin background($image: false, $repeat: no-repeat, $position: center, $size: cover) {
+	@if $image {
+		background-image: url($image);
+	}
+	background-repeat: $repeat; 
+	background-position: $position;
+	background-size: $size;
+}
+
+/* pseudo */
+@mixin pseudo($display: inline-block, $content: '') {
+	content: $content;
+	display: $display;
+}
