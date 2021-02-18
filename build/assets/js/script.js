@@ -99,10 +99,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/menu */ "./app/assets/js/modules/menu.js");
 
 
-window.addEventListener('DOMContentLoaded', () => {
-  Object(_modules_animation__WEBPACK_IMPORTED_MODULE_0__["default"])('.animation-item', 'visible');
-  Object(_modules_menu__WEBPACK_IMPORTED_MODULE_1__["default"])('.burger', '.header__nav', 'active-burger', 'active-nav');
-});
+window.addEventListener('DOMContentLoaded', () => {});
 
 /***/ }),
 
