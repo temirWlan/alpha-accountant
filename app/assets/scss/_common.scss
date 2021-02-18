@@ -146,22 +146,10 @@
 	&__list {
 		list-style-type: none;
 		&-item {
+			@include flex;
 			position: relative;
 			&:not(:first-child) {
 				margin-left: 48px;
-			}
-			&:before, &:after {
-				@include pseudo;
-				@include position(absolute, 55%, 0);
-				width: 10px;
-				height: 2px;
-				background-color: $dark;
-			}
-			&:before {
-				transform: translate(-3px) rotate(45deg);
-			}
-			&:after {
-				transform: translate(3px) rotate(-45deg);
 			}
 			&--active {
 				> a {
@@ -171,12 +159,28 @@
 			&-link {
 				@include pt-bold;
 				@include font-props(20px, 130%, $dark);
-				margin-right: 20px;
+				margin-right: 7px;
 				text-decoration: none;
 				white-space: nowrap;
 				transition: $slow;
 				&:hover {
 					color: $red;
+				}
+			}
+			> span {
+				@include flex;
+				margin-top: 5px;
+				&:before, &:after {
+					@include pseudo;
+					width: 10px;
+					height: 2px;
+					background-color: $dark;
+				}
+				&:before {
+					transform: translateX(2px) rotate(45deg);
+				}
+				&:after {
+					transform: translateX(-2px) rotate(-45deg);
 				}
 			}
 		}
@@ -197,11 +201,37 @@
 }
 
 .accordion {
+	@include flex($direction: column, $align: flex-start);
+	padding: 22px 52px 23px 40px;
+	background-color: #fff;
+	cursor: pointer;
+	box-shadow: 0px 0px 29px -3px rgba(0, 0, 0, 0.25);
+	transition: $slow;
+	&:not(:first-child) {
+		margin-top: 36px;
+	}
+	&:hover {
+		background-color: $yellow;
+	}
 	&__header {
+		width: 100%;
 	}
 	&__title {
 	}
 	&__arrow {
+		@include flex;
+		&:before, &:after {
+			@include pseudo;
+			width: 18px;
+			height: 2px;
+			background-color: #818181;
+		}
+		&:before {
+			transform: translateX(3px) rotate(40deg);
+		}
+		&:after {
+			transform: translateX(-3px) rotate(-40deg);	
+		}
 	}
 	&__body {
 	}

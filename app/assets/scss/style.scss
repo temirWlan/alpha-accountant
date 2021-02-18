@@ -4,6 +4,11 @@
 @import '_mixins.scss';
 @import '_common.scss';
 
+html, body {
+	@include pt-regular;
+	overflow-x: hidden;
+}
+
 .wrapper {
 	&__content {
 	}
@@ -20,13 +25,29 @@
 	&__column {
 		width: 74%;
 	}
+	&__row {
+		&:first-child {
+			margin-bottom: 18px;
+			width: 100%;
+		}
+	}
 	&__image-block {
+		max-width: 278px;
 	}
 	&__caption {
 	}
 	&__phone {
+		@include pt-bold;
+		@include font-props(24px, 130%, $dark);
+		text-decoration: none;
+		& img {
+			margin-right: 8px;
+			width: 23px;
+			height: 23px;
+		}
 	}
 	&__nav {
+		margin-top: 24px;
 	}
 	.line {
 		background-color: $dark;
@@ -37,120 +58,291 @@
 	&__wrapper {
 	}
 	&__slider {
+
 	}
 	&__slider-container {
 	}
 	&__slider-wrapper {
 	}
 	&__slide {
+		position: relative;
+		width: 100%;
+		min-height: 594px;
+	}
+	&__slide-bg {
+		@include position(absolute, 0, $left: 0);
+		width: 100%;
+		height: 100%;
+		z-index: 1;
+	}
+	&__slide-row {
+		margin-top: 56px;
+		&.row {
+			align-items: flex-start;
+		}
 	}
 	&__slide-column {
 	}
 	&__slide-desc {
+		max-width: 660px;
+		padding: 34px 20px 32px 74px;
+		z-index: 2;
+		background-color: #fff;
+	}
+	&__slide-title {
+		margin: 0;
+		color: $red;
 	}
 	&__slide-text {
 	}
 	&__slide-paragraph {
+		@include pt-bold;
+		@include font-props(14px, 180%, #474747);
+		text-shadow: 0px 0px 10px #FFFFFF;
+		&:not(:first-child) {
+			margin-top: 30px;
+		}
 	}
 	&__slide-icon {
+		z-index: 2;
+		> img {
+			width: 134px;
+			height: 80px;
+		}
+	}
+	&__slide-btn {
+		margin-top: 42px;
 	}
 	&__slider-btns {
 	}
 	&__slider-btn {
 	}
+	button {
+		z-index: 2;
+	}
 }
 
 .tariffs {
-	&__wrapper {
-	}
+	margin-top: 5.5rem;
 	&__inner {
+		max-width: 980px;
 	}
 	&__title {
 	}
 	&__cards {
+		margin-top: 5.6875rem;
+		list-style-type: none;
 	}
 	&__card {
+		width: 100%;
+		box-shadow: inset 0px 0px 9px rgba(0, 0, 0, 0.32);
+		&:not(:first-child) {
+			margin-top: 5.125rem;
+		}
+		.line {
+			margin-top: 36px;
+		}
 	}
 	&__card-wrapper {
+		display: inline-block;
+		width: 100%;
+		height: 100%;
+		padding: 85px 73px 84px 78px;
+		position: relative;
+		text-decoration: none;
+		transition: $slow;
+		&:hover {
+			background-color: $yellow;
+		}
 	}
 	&__card-text {
-	}
-	&__card-title {
+		&.column {
+			align-items: flex-start;
+		}
 	}
 	&__card-price {
+		margin-top: 12px;
+		color: $lightRed;
 	}
 	&__card-image-block {
+		@include position(absolute, -26px, 11.8%);
 	}
 	&__card-desc {
+		margin-top: 16px;
+		&.row {
+			align-items: flex-start;
+		}
 	}
 	&__card-item {
+		min-width: 29%;
+		max-width: 32%;
 	}
 	&__card-item-title {
+		color: $lightRed;
 	}
 	&__card-item-text {
+		margin-top: 12px;
+		line-height: 171%;
 	}
 }
 
 .achievements {
-	&__wrapper {
-	}
+	margin-top: 5.625rem;
 	&__inner {
-	}
-	&__title {
+		max-width: 984px;
 	}
 	&__items {
+		margin-top: 3.25rem;
 	}
 	&__item {
+		&:not(:first-child) {
+			margin-left: 28px;
+		}
 	}
 	&__item-title {
+		@include flex($justify: center);
+		@include background('../icons/polyhedron.svg');
+		width: 134px;
+		height: 141px;
+		text-align: center;
 	}
 	&__item-text {
+		margin-top: 12px;
+		text-align: center;
+	}
+	&__line {
+		margin-top: 36px;
 	}
 	&__grid {
+		margin-top: 1.75rem;
+		&.row {
+			align-items: flex-start;
+		}
+		&-line {
+			width: 1px;
+			min-height: 620px;
+		}
 	}
 	&__column {
+		width: 16%;
 	}
 	&__grid-item {
+		margin-top: 3rem;
 	}
 	&__grid-item-image-block {
+		> img {
+			width: 102px;
+			height: 102px;
+		}
 	}
 	&__grid-item-text {
+		color: $gray;
 	}
 	&__image-block {
+		@include flex;
+		max-width: 334px;
+		width: 100%;
+		position: relative;
+		> img {
+			z-index: 2;
+		}
+		&:after {
+			@include position(absolute, 5%, -75%);
+			@include pseudo;
+			@include background('../images/section/achievements/alpha-accountant.png');
+			min-width: 434px;
+			min-height: 365px;
+			z-index: 1;
+			opacity: 0.05;
+		}
 	}
 	&__text {
+		margin-left: -4%;
+		line-height: 150%;
+		> span {
+			color: $blue;
+		}
 	}
 }
 
 .stages {
+	@include background('../images/bg/trapezoid.png');
+	margin-top: -6%;
+	position: relative;
+	z-index: 2;
 	&__wrapper {
+		padding: 7.125rem 0 4.5625rem;
 	}
 	&__inner {
 	}
 	&__bg {
+		width: 100%;
+		background-color: $yellow;
 	}
 	&__title {
 	}
 	&__items {
+		margin-top: 4.375rem;
+		&.row {
+			align-items: flex-start;
+		}
 	}
 	&__item {
+		flex: 0 0 16.4%;
+		position: relative;
+		&:after {
+			@include pseudo;
+			@include background('../icons/dots-line.svg');
+			@include position(absolute);
+			width: 120px;
+			height: 30px;
+		}
+		&:nth-child(odd) {
+			&:after {
+				top: -10px;
+				right: -50px;
+			}
+		}
+		&:nth-child(even) {
+			&:after {
+				transform: rotate(180deg);
+				bottom: -50px;
+				right: -60px;
+			}
+		}
+		&:last-child {
+			&:after {
+				display: none;
+			}
+		}
 	}
 	&__item-image-block {
+		width: 150px;
+		height: 150px;
+		border-radius: 50%;
+		background-color: #fff;
 	}
 	&__item-text {
+		margin-top: 22px;
+		@include pt-bold;
+	}
+	&__btn {
+		margin-top: 5.25rem;
 	}
 }
 
 .faq {
 	&__wrapper {
+		padding: 6.875rem 0;
 	}
 	&__inner {
-	}
-	&__title {
+		max-width: 980px;
 	}
 	&__column {
 	}
 	&__accordions {
+		margin-top: 3.0625rem;
+		list-style-type: none;
 	}
 }
 
