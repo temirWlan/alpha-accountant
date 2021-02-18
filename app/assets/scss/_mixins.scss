@@ -37,10 +37,17 @@
 }
 
 /* grid */
-@mixin grid($columns, $colgap, $rowgap, $rows: false) {
+@mixin grid($columns: false, $colgap: false, $rowgap: false, $rows: false) {
 	display: grid;
-	grid-template-columns: $columns;
-	grid-gap: $colgap $rowgap;
+	@if $columns {
+		grid-template-columns: $columns;
+	}
+	@if $colgap {
+		grid-column-gap: $colgap;
+	}
+	@if $rowgap {
+		grid-row-gap: $rowgap;
+	}
 	@if $rows {
 		grid-template-rows: $rows;
 	}
@@ -60,4 +67,23 @@
 @mixin pseudo($display: inline-block, $content: '') {
 	content: $content;
 	display: $display;
+}
+
+/* position */
+@mixin position($position: false, $top: false, $right: false, $bottom: false, $left: false) {
+	@if $position {
+		position: $position;
+	}
+	@if $top {
+		top: $top;
+	}
+	@if $right {
+		right: $right;
+	}
+	@if $bottom {
+		bottom: $bottom;
+	}
+	@if $left {
+		left: $left;
+	}
 }

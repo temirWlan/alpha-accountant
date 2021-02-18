@@ -48,7 +48,6 @@ function clean() {
 
 function copyHtml() {
 	return gulp.src(path.src.html)
-					.pipe(htmlmin({ collapseWhitespace: true }))
                .pipe(gulp.dest(path.build.html))
                .pipe(browsersync.stream());
 }

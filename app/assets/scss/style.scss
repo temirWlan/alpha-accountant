@@ -3,3 +3,253 @@
 @import '_variables.scss';
 @import '_mixins.scss';
 @import '_common.scss';
+
+.wrapper {
+	&__content {
+	}
+}
+
+.header {
+	background-color: $yellow;
+	&__wrapper {
+		padding: 6px 0;
+	}
+	&__inner {
+		max-width: 1088px;
+	}
+	&__column {
+		width: 74%;
+	}
+	&__image-block {
+	}
+	&__caption {
+	}
+	&__phone {
+	}
+	&__nav {
+	}
+	.line {
+		background-color: $dark;
+	}
+}
+
+.connection {
+	&__wrapper {
+	}
+	&__slider {
+	}
+	&__slider-container {
+	}
+	&__slider-wrapper {
+	}
+	&__slide {
+	}
+	&__slide-column {
+	}
+	&__slide-desc {
+	}
+	&__slide-text {
+	}
+	&__slide-paragraph {
+	}
+	&__slide-icon {
+	}
+	&__slider-btns {
+	}
+	&__slider-btn {
+	}
+}
+
+.tariffs {
+	&__wrapper {
+	}
+	&__inner {
+	}
+	&__title {
+	}
+	&__cards {
+	}
+	&__card {
+	}
+	&__card-wrapper {
+	}
+	&__card-text {
+	}
+	&__card-title {
+	}
+	&__card-price {
+	}
+	&__card-image-block {
+	}
+	&__card-desc {
+	}
+	&__card-item {
+	}
+	&__card-item-title {
+	}
+	&__card-item-text {
+	}
+}
+
+.achievements {
+	&__wrapper {
+	}
+	&__inner {
+	}
+	&__title {
+	}
+	&__items {
+	}
+	&__item {
+	}
+	&__item-title {
+	}
+	&__item-text {
+	}
+	&__grid {
+	}
+	&__column {
+	}
+	&__grid-item {
+	}
+	&__grid-item-image-block {
+	}
+	&__grid-item-text {
+	}
+	&__image-block {
+	}
+	&__text {
+	}
+}
+
+.stages {
+	&__wrapper {
+	}
+	&__inner {
+	}
+	&__bg {
+	}
+	&__title {
+	}
+	&__items {
+	}
+	&__item {
+	}
+	&__item-image-block {
+	}
+	&__item-text {
+	}
+}
+
+.faq {
+	&__wrapper {
+	}
+	&__inner {
+	}
+	&__title {
+	}
+	&__column {
+	}
+	&__accordions {
+	}
+}
+
+.partners {
+	&__wrapper {
+	}
+	&__inner {
+	}
+	&__title {
+	}
+	&__slider {
+	}
+	&__slider-container {
+	}
+	&__slider-wrapper {
+	}
+	&__slide {
+	}
+	&__slide-image-block {
+	}
+	&__slide-text {
+	}
+	&__slider-btns {
+	}
+	&__slider-btn {
+	}
+	&__image-block {
+	}
+}
+
+.reviews {
+	&__wrapper {
+	}
+	&__inner {
+	}
+	&__title {
+	}
+	&__slider {
+	}
+	&__slider-container {
+	}
+	&__slider-wrapper {
+	}
+	&__slide {
+	}
+	&__slider-btns {
+	}
+}
+
+.team {
+	&__wrapper {
+	}
+	&__inner {
+	}
+	&__title {
+	}
+	&__slider {
+	}
+	&__slider-container {
+	}
+	&__slider-wrapper {
+	}
+	&__slide {
+	}
+	&__slide-image-block {
+	}
+	&__slide-desc {
+	}
+	&__slide-title {
+	}
+	&__slide-text {
+	}
+	&__slider-btns {
+	}
+}
+
+.footer {
+	&__wrapper {
+	}
+	&__inner {
+	}
+	&__image-block {
+	}
+	&__socials {
+	}
+	&__social {
+	}
+	&__nav {
+	}
+	&__list {
+	}
+	&__list-item {
+	}
+	&__list-item-link {
+	}
+	&__map {
+	}
+	&__paragraph {
+	}
+	&__link {
+	}
+}
