@@ -3,6 +3,7 @@
 @import '_variables.scss';
 @import '_mixins.scss';
 @import '_common.scss';
+@import '_custom.scss';
 
 html, body {
 	@include pt-regular;
@@ -94,6 +95,7 @@ html, body {
 		color: $red;
 	}
 	&__slide-text {
+		margin-top: 16px;
 	}
 	&__slide-paragraph {
 		@include pt-bold;
@@ -332,116 +334,238 @@ html, body {
 }
 
 .faq {
+	position: relative;
+	&:before {
+		@include pseudo;
+		@include background('../images/bg/question-mark.png');
+		@include position(absolute, 3%, 3%);
+		max-width: 500px;
+		width: 100%;
+		min-height: 800px;
+		transform: scale(0.9);
+	}
 	&__wrapper {
 		padding: 6.875rem 0;
+		position: relative;
+		z-index: 2;
 	}
 	&__inner {
 		max-width: 980px;
 	}
 	&__column {
+		&.column {
+			align-items: flex-end;
+		}
 	}
 	&__accordions {
 		margin-top: 3.0625rem;
 		list-style-type: none;
 	}
+	&__btn {
+		margin-top: 36px;
+	}
 }
 
 .partners {
+	background-color: $yellow;
 	&__wrapper {
+		padding-top: 4.8125rem;
+	}
+	&__column {
+
 	}
 	&__inner {
+		max-width: 1128px;
 	}
 	&__title {
+
 	}
 	&__slider {
+		margin-top: 2.875rem;
 	}
 	&__slider-container {
+		width: 88.5%;
 	}
 	&__slider-wrapper {
+		@include flex($align: flex-start);
 	}
 	&__slide {
+		@include flex($direction: column);
+		min-height: 180px;
 	}
 	&__slide-image-block {
+		@include flex($justify: center);
+		max-width: 180px;
+		height: 130px;
 	}
 	&__slide-text {
+		margin-top: 22px;
+		line-height: 168%;
+		color: $darkGray;
 	}
 	&__slider-btns {
 	}
 	&__slider-btn {
 	}
 	&__image-block {
+		margin: 27px 0 -4px;
+		position: relative;
+		&:before {
+			@include pseudo;
+			@include position(absolute, $bottom: -16%, $left: -5%);
+			width: 252px;
+			height: 252px;
+			border-radius: 50%;
+			background-color: #fff;
+		}
 	}
 }
 
 .reviews {
-	&__wrapper {
+	margin-top: 6.9375rem;
+	position: relative;
+	&:before {
+		@include pseudo;
+		@include position(absolute, -30%, 20%);
+		@include background('../icons/ok.svg');
+		width: 312px;
+		height: 330px;
 	}
 	&__inner {
-	}
-	&__title {
+		max-width: 1128px;
 	}
 	&__slider {
+		margin-top: 38px;
 	}
 	&__slider-container {
 	}
 	&__slider-wrapper {
+		height: 356px;
+	}
+	&__slider-btn {
+		outline: none;
 	}
 	&__slide {
-	}
-	&__slider-btns {
+		width: 202px;
+		height: 295px;
+		transition: $slow;
+		&:hover {
+			transform: scale(1.2);
+		}
 	}
 }
 
 .team {
+	position: relative;
+	&:before {
+		@include pseudo;
+		@include position(absolute, 8%, $left: 24%);
+		@include background('../icons/smiling-face.svg');
+		width: 256px;
+		height: 256px;
+	}
 	&__wrapper {
+		padding: 10rem 0 7.0625rem;
+		position: relative;
+		z-index: 2;
 	}
 	&__inner {
-	}
-	&__title {
-	}
+		max-width: 1128px;
+	}	
 	&__slider {
+		margin-top: 6.5rem;
 	}
 	&__slider-container {
+		width: 87%;
 	}
 	&__slider-wrapper {
 	}
 	&__slide {
+		background-color: #fff;
+		border: 1px solid #c4c4c4;
+		box-shadow: 0px 0px 29px rgba(0, 0, 0, 0.25);
 	}
 	&__slide-image-block {
 	}
 	&__slide-desc {
+		padding: 14px 39px 30px;
 	}
 	&__slide-title {
+		@include pt-bold;
+		@include font-props(18px, 128%, $dark);
 	}
 	&__slide-text {
+		@include pt-regular;
+		@include font-props(14px, 107%, $darkGray);
+		margin-top: 7px;
 	}
 	&__slider-btns {
 	}
 }
 
 .footer {
+	background-color: $yellow;
 	&__wrapper {
+		padding: 66px 0 29px;
 	}
 	&__inner {
+		max-width: 1034px;
+		&.column {
+			align-items: flex-start;
+		}
+		> .row {
+			width: 100%;
+			&:first-child {
+				justify-content: flex-start;
+			}
+		}
+	}
+	&__row {
+		margin-top: 5.8125rem;
 	}
 	&__image-block {
+		max-width: 250px;
 	}
 	&__socials {
 	}
 	&__social {
+		&:not(:first-child) {
+			margin-left: 22px;
+		}
 	}
 	&__nav {
+		margin-left: 38px;
 	}
 	&__list {
+		&.column {
+			align-items: flex-start;
+		}
 	}
 	&__list-item {
+		&:not(:first-child) {
+			margin: 19px 0 0;
+		}
 	}
 	&__list-item-link {
+		@include pt-bold;
+		@include font-props(16px, 131%, $dark);
 	}
 	&__map {
+		margin-left: auto;
+		> iframe {
+			width: 480px;
+			height: 176px;
+		}
 	}
 	&__paragraph {
+		color: $gray;
 	}
 	&__link {
+		margin: 2.3125rem auto 0;
+		@include pt-bold;
+		color: $red;
+		text-decoration: none;
 	}
 }
+
+@import '_media.scss';

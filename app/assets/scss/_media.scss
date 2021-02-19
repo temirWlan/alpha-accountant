@@ -1,0 +1,31 @@
+@media (max-width: 1300px) {
+	.container {
+		max-width: 90%;
+	}
+
+	.inner {
+		max-width: 90%;	
+	}
+}
+
+@media (max-width: 1200px) {
+	.header {
+		&__image-block {
+			max-width: 220px;
+		}
+		&__nav {
+			display: none;
+		}
+		.line {
+			display: none;
+		}
+	}
+
+	.connection {
+		&__slide-paragraph {
+			&:not(:first-child) {
+    		margin-top: 15px;
+			}
+		}
+	}
+}

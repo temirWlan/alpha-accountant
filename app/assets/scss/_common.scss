@@ -1,3 +1,8 @@
+::placeholder {
+	@include pt-bold;
+	@include font-props(26px, 130%, #bdbdbd);
+}
+
 .line {
 	width: 100%;
 	height: 1px;
@@ -87,31 +92,36 @@
 	cursor: pointer;
 	text-decoration: none;
 	white-space: nowrap;
+	transition: $slow;
 }
 
 .red-btn {
 	@include font-props(20px, 130%, #fff);
 	padding: 12px 56px;
 	background-color: $red;
+	&:hover {
+		background-color: #b40404;
+	}
 }
 
 .yellow-btn {
 	@include font-props(16px, 131%, $darkGray);
 	padding: 12px 46px;
 	background-color: $yellow;
+	&:hover {
+		background-color: #ffdc22;
+	}
 }
 
 .burger {
+	@include flex($direction: column);
+	display: none;
 	width: 30px;
 	height: 20px;
 	border: none;
 	background-color: transparent;
 	position: relative;
 	z-index: 110;
-	&.column {
-		display: none;
-		justify-content: space-between;
-	}
 	> span {
 		width: 30px;
 		height: 3px;
@@ -157,30 +167,31 @@
 				}
 			}
 			&-link {
+				@include flex;
 				@include pt-bold;
 				@include font-props(20px, 130%, $dark);
-				margin-right: 7px;
 				text-decoration: none;
 				white-space: nowrap;
 				transition: $slow;
 				&:hover {
 					color: $red;
 				}
-			}
-			> span {
-				@include flex;
-				margin-top: 5px;
-				&:before, &:after {
-					@include pseudo;
-					width: 10px;
-					height: 2px;
-					background-color: $dark;
-				}
-				&:before {
-					transform: translateX(2px) rotate(45deg);
-				}
-				&:after {
-					transform: translateX(-2px) rotate(-45deg);
+				> span {
+					margin-left: 7px;
+					@include flex;
+					margin-top: 5px;
+					&:before, &:after {
+						@include pseudo;
+						width: 10px;
+						height: 2px;
+						background-color: $dark;
+					}
+					&:before {
+						transform: translateX(2px) rotate(45deg);
+					}
+					&:after {
+						transform: translateX(-2px) rotate(-45deg);
+					}
 				}
 			}
 		}
@@ -190,13 +201,19 @@
 }
 
 .slider {
+	@include flex;
+	width: 100%;
+	position: relative;
 	&__container {
+		width: 87%;
 	}
 	&__wrapper {
 	}
 	&__btns {
+		height: 44px;
 	}
 	&__btn {
+		outline: none;
 	}
 }
 
@@ -217,6 +234,7 @@
 		width: 100%;
 	}
 	&__title {
+		flex: 0 0 78%;
 	}
 	&__arrow {
 		@include flex;
@@ -239,9 +257,91 @@
 	}
 }
 
-.socials {
+.modal {
+	@include position(fixed, 0, 0, 0, 0);
+	@include flex($justify: center);
+	display: none;
+	background-color: rgba(0, 0, 0, 0.7);
+	z-index: 10;
+	&--active {
+		display: flex;
+	}
+	&__dialog {
+		max-width: 840px;
+		background-color: #fff;
+		box-shadow: 0px 0px 80px -2px rgba(0, 0, 0, 0.25);
+	}
+	&__content {
+		@include flex($direction: column, $justify: flex-start);
+		padding: 36px 57px 41px 74px;
+	}
+	&__header {
+		@include flex;
+	}
+	&__title {
+		@include pt-bold;
+		@include font-props(30px, 130%, $dark);
+	}
+	&__body {
+		margin-top: 27px;
+	}
+	&__form {
+		width: 100%;
+	}
+	&__form-fields {
+		width: 100%;
+	}
+	&__form-input {
+		&:not(:first-child) {
+			margin-top: 27px;
+		}
+	}
+	&__form-confirm {
+		@include pt-bold;
+		@include font-props(12px, 200%, #bdbdbd);
+		margin-top: 35px;
+	}
+	&__form-checkbox {
+		width: 12px;
+		height: 12px;
+	}
+	&__form-btn {
+		margin: 28px auto 0;
+	}
 }
+.form {
+	&__fields {
+	}
+	&__field {
+		width: 100%;
+	}
+	&__input {
+		@include pt-bold;
+		@include font-props(26px, 130%, $dark);
+		padding: 8px 22px 7px;
+		border: 1px solid #c4c4c4;
+		outline: none;
+	}
+	&__checkbox {
+		border: 2px solid $gray;
+	}
+	&__btn {
+	}
+}
+
+.socials {
+	list-style-type: none;
+}
+
 .social {
+	width: 33px;
+	height: 33px;
+	background-color: $darkGray;
+	&__link {
+		@include flex($justify: center);
+		width: 100%;
+		height: 100%;
+	}
 }
 
 /* animation */
@@ -270,3 +370,22 @@
 	opacity: 1;
 }
 
+@media (max-width: 1300px) {
+	.nav {
+		&__list-item {
+			&:not(:first-child) {
+    		margin-left: 20px;
+			}
+		}
+	}
+}
+
+@media (max-width: 1200px) {
+	.burger {
+		display: flex;
+	}
+
+	.big-title {
+		font-size: 52px;
+	}
+}

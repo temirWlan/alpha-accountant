@@ -97,9 +97,50 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_animation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/animation */ "./app/assets/js/modules/animation.js");
 /* harmony import */ var _modules_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/menu */ "./app/assets/js/modules/menu.js");
+/* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/modal */ "./app/assets/js/modules/modal.js");
 
 
-window.addEventListener('DOMContentLoaded', () => {});
+
+window.addEventListener('DOMContentLoaded', () => {
+  Object(_modules_animation__WEBPACK_IMPORTED_MODULE_0__["default"])('.animation-item', 'visible');
+  Object(_modules_modal__WEBPACK_IMPORTED_MODULE_2__["default"])('.order-btn', '.modal', 'modal--active'); // sliders
+
+  const connectionSlider = new Swiper('.connection__slider-container', {
+    slidesPerView: 1,
+    loop: true,
+    navigation: {
+      nextEl: '.connection__slider-btn.swiper-button-next',
+      prevEl: '.connection__slider-btn.swiper-button-prev'
+    }
+  });
+  const partnersSlider = new Swiper('.partners__slider-container', {
+    slidesPerView: 5,
+    spaceBetween: 10,
+    loop: true,
+    navigation: {
+      nextEl: '.partners__slider-btn.swiper-button-next',
+      prevEl: '.partners__slider-btn.swiper-button-prev'
+    }
+  });
+  const reviewsSlider = new Swiper('.reviews__slider-container', {
+    slidesPerView: 4,
+    spaceBetween: 56,
+    loop: true,
+    navigation: {
+      nextEl: '.reviews__slider-btn.swiper-button-next',
+      prevEl: '.reviews__slider-btn.swiper-button-prev'
+    }
+  });
+  const teamSlider = new Swiper('.team__slider-container', {
+    slidesPerView: 4,
+    spaceBetween: 61,
+    loop: true,
+    navigation: {
+      nextEl: '.team__slider-btn.swiper-button-next',
+      prevEl: '.team__slider-btn.swiper-button-prev'
+    }
+  });
+});
 
 /***/ }),
 
@@ -175,6 +216,28 @@ __webpack_require__.r(__webpack_exports__);
   menu.addEventListener('click', () => {
     trigger.classList.toggle(triggerActiveClass);
     Object(_utils_toggle__WEBPACK_IMPORTED_MODULE_0__["hideItem"])(menuSelector, menuActiveClass);
+  });
+});
+
+/***/ }),
+
+/***/ "./app/assets/js/modules/modal.js":
+/*!****************************************!*\
+  !*** ./app/assets/js/modules/modal.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _utils_toggle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/toggle */ "./app/assets/js/utils/toggle.js");
+
+/* harmony default export */ __webpack_exports__["default"] = (function (triggerSelector, modalSelector, activeClass) {
+  const triggers = document.querySelectorAll(triggerSelector);
+  triggers.forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      Object(_utils_toggle__WEBPACK_IMPORTED_MODULE_0__["showItem"])(modalSelector, activeClass);
+    });
   });
 });
 

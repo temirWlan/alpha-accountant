@@ -1,0 +1,8 @@
+.swiper-button-next,
+.swiper-button-prev {
+	width: 20px;
+	height: 42px;
+	&:after {
+		color: $dark;
+	}
+}
