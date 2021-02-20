@@ -98,12 +98,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_animation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/animation */ "./app/assets/js/modules/animation.js");
 /* harmony import */ var _modules_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/menu */ "./app/assets/js/modules/menu.js");
 /* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/modal */ "./app/assets/js/modules/modal.js");
+/* harmony import */ var _modules_accordion__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/accordion */ "./app/assets/js/modules/accordion.js");
+
 
 
 
 window.addEventListener('DOMContentLoaded', () => {
   Object(_modules_animation__WEBPACK_IMPORTED_MODULE_0__["default"])('.animation-item', 'visible');
-  Object(_modules_modal__WEBPACK_IMPORTED_MODULE_2__["default"])('.order-btn', '.modal', 'modal--active'); // sliders
+  Object(_modules_menu__WEBPACK_IMPORTED_MODULE_1__["default"])({
+    triggerSelector: '.burger',
+    menuSelector: '.header__nav',
+    triggerActiveClass: 'burger--active',
+    menuActiveClass: 'nav--active'
+  });
+  Object(_modules_modal__WEBPACK_IMPORTED_MODULE_2__["default"])('.order-btn', '.modal', 'modal--active');
+  Object(_modules_accordion__WEBPACK_IMPORTED_MODULE_3__["default"])('.accordion', 'accordion--active'); // sliders
 
   const connectionSlider = new Swiper('.connection__slider-container', {
     slidesPerView: 1,
@@ -111,34 +120,122 @@ window.addEventListener('DOMContentLoaded', () => {
     navigation: {
       nextEl: '.connection__slider-btn.swiper-button-next',
       prevEl: '.connection__slider-btn.swiper-button-prev'
+    },
+    autoplay: {
+      delay: 5000
     }
   });
   const partnersSlider = new Swiper('.partners__slider-container', {
-    slidesPerView: 5,
     spaceBetween: 10,
     loop: true,
     navigation: {
       nextEl: '.partners__slider-btn.swiper-button-next',
       prevEl: '.partners__slider-btn.swiper-button-prev'
+    },
+    autoplay: {
+      delay: 5000
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 1
+      },
+      600: {
+        slidesPerView: 2
+      },
+      992: {
+        slidesPerView: 3
+      },
+      1200: {
+        slidesPerView: 5
+      }
     }
   });
   const reviewsSlider = new Swiper('.reviews__slider-container', {
-    slidesPerView: 4,
-    spaceBetween: 56,
     loop: true,
     navigation: {
       nextEl: '.reviews__slider-btn.swiper-button-next',
       prevEl: '.reviews__slider-btn.swiper-button-prev'
+    },
+    autoplay: {
+      delay: 5000
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 1
+      },
+      460: {
+        slidesPerView: 2,
+        spaceBetween: 30
+      },
+      500: {
+        slidesPerView: 2,
+        spaceBetween: 10
+      },
+      576: {
+        slidesPerView: 2,
+        spaceBetween: 40
+      },
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 30
+      },
+      992: {
+        slidesPerView: 3,
+        spaceBetween: 50
+      },
+      1200: {
+        slidesPerView: 4,
+        spaceBetween: 56
+      }
     }
   });
   const teamSlider = new Swiper('.team__slider-container', {
     slidesPerView: 4,
-    spaceBetween: 61,
     loop: true,
     navigation: {
       nextEl: '.team__slider-btn.swiper-button-next',
       prevEl: '.team__slider-btn.swiper-button-prev'
+    },
+    autoplay: {
+      delay: 5000
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 1
+      },
+      600: {
+        slidesPerView: 2,
+        spaceBetween: 30
+      },
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 50
+      },
+      1200: {
+        slidesPerView: 4,
+        spaceBetween: 61
+      }
     }
+  });
+});
+
+/***/ }),
+
+/***/ "./app/assets/js/modules/accordion.js":
+/*!********************************************!*\
+  !*** ./app/assets/js/modules/accordion.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (triggerSelector, activeClass) {
+  const triggers = document.querySelectorAll(triggerSelector);
+  triggers.forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      trigger.classList.toggle(activeClass);
+    });
   });
 });
 
@@ -213,9 +310,11 @@ __webpack_require__.r(__webpack_exports__);
     trigger.classList.toggle(triggerActiveClass);
     trigger.classList.contains(triggerActiveClass) ? Object(_utils_toggle__WEBPACK_IMPORTED_MODULE_0__["showItem"])(menuSelector, menuActiveClass) : Object(_utils_toggle__WEBPACK_IMPORTED_MODULE_0__["hideItem"])(menuSelector, menuActiveClass);
   });
-  menu.addEventListener('click', () => {
-    trigger.classList.toggle(triggerActiveClass);
-    Object(_utils_toggle__WEBPACK_IMPORTED_MODULE_0__["hideItem"])(menuSelector, menuActiveClass);
+  menu.addEventListener('click', e => {
+    if (e.target === menu) {
+      trigger.classList.remove(triggerActiveClass);
+      Object(_utils_toggle__WEBPACK_IMPORTED_MODULE_0__["hideItem"])(menuSelector, menuActiveClass);
+    }
   });
 });
 
@@ -234,10 +333,16 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = (function (triggerSelector, modalSelector, activeClass) {
   const triggers = document.querySelectorAll(triggerSelector);
+  const modal = document.querySelector(modalSelector);
   triggers.forEach(trigger => {
     trigger.addEventListener('click', () => {
       Object(_utils_toggle__WEBPACK_IMPORTED_MODULE_0__["showItem"])(modalSelector, activeClass);
     });
+  });
+  modal.addEventListener('click', e => {
+    if (e.target.classList.contains(activeClass)) {
+      modal.classList.remove(activeClass);
+    }
   });
 });
 

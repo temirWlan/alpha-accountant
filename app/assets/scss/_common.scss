@@ -119,9 +119,9 @@
 	width: 30px;
 	height: 20px;
 	border: none;
-	background-color: transparent;
 	position: relative;
-	z-index: 110;
+	z-index: 7;
+	background-color: transparent;
 	> span {
 		width: 30px;
 		height: 3px;
@@ -134,11 +134,19 @@
 		min-height: 3px;
 		background-color: $dark;
 		transition: $slow;
+		position: relative;
+		z-index: 7;
 	}
 	&--active {
+		position: relative;
+		z-index: 7;
 		> span {
 			opacity: 0;
 			background-color: #fff;
+		}
+		&:before, &:after {
+			position: relative;
+			z-index: 100;
 		}
 		&:before {
 			transform: translateY(8px) rotate(45deg);
@@ -153,6 +161,28 @@
 
 
 .nav {
+	&--active {
+		@include position(fixed, 0, 0, 0, 0);
+		@include flex($justify: center);
+		background-color: rgb(0, 0, 0);
+		z-index: 15;
+		> ul {
+			@include flex($direction: column, $justify: center);
+			height: 80%;
+			> li {
+				&:not(:first-child) {
+					margin-top: 8%;
+				}
+				> a {
+					font-size: 22px;
+					color: #fff;
+					> span {
+						display: none;
+					}
+				}
+			}
+		}
+	}
 	&__list {
 		list-style-type: none;
 		&-item {
@@ -219,6 +249,8 @@
 
 .accordion {
 	@include flex($direction: column, $align: flex-start);
+	@include pt-bold;
+	@include font-props(18px, 128%, $darkGray);
 	padding: 22px 52px 23px 40px;
 	background-color: #fff;
 	cursor: pointer;
@@ -230,6 +262,19 @@
 	&:hover {
 		background-color: $yellow;
 	}
+	&--active {
+		&:hover {
+			background-color: #fff;
+		}
+		.accordion__arrow {
+			transform: rotate(180deg);
+		}
+		> .accordion__body {
+			display: block;
+			transform: translateY(0);
+			opacity: 1;
+		}
+	}
 	&__header {
 		width: 100%;
 	}
@@ -238,6 +283,7 @@
 	}
 	&__arrow {
 		@include flex;
+		transition: $slow;
 		&:before, &:after {
 			@include pseudo;
 			width: 18px;
@@ -252,8 +298,17 @@
 		}
 	}
 	&__body {
+		display: none;
+		margin-top: 40px;
+		transform: translateY(-100%);
+		opacity: 0.3;
+		transition: $slow;
 	}
 	&__text {
+		@include pt-regular;
+		&:not(:first-child) {
+			margin-top: 20px;
+		}
 	}
 }
 
@@ -389,3 +444,100 @@
 		font-size: 52px;
 	}
 }
+
+@media (max-width: 992px) {
+	.big-title {
+		font-size: 38px;
+	}
+
+	.section {
+		&-title {
+			font-size: 32px;
+		}
+		&-subtitle {
+			font-size: 26px;
+		}
+	}
+
+
+	.accordion {
+		font-size: 16px;
+	}
+}
+
+@media (max-width: 768px) {
+	.big-title {
+		font-size: 32px;
+	}
+
+	.section {
+		&-title {
+			font-size: 30px;
+		}
+		&-subtitle {
+			font-size: 24px;
+		}
+	}
+
+	.accordion {
+		&:not(:first-child) {
+			margin-top: 25px;
+		}
+		&__title {
+			flex: 0 0 90%;
+		}
+	}
+
+	.red-btn {
+		padding: 10px 34px;
+	}
+
+	.yellow-btn {
+		padding: 10px 30px;
+	}
+}
+
+@media (max-width: 660px) {
+	.section {
+		&-title {
+			font-size: 28px;
+		}
+	}
+}
+
+@media (max-width: 576px) {
+	.big-title {
+		font-size: 28px;
+	}
+
+	.section {
+		&-title {
+			font-size: 26px;
+		}
+		&-subtitle {
+			font-size: 22px;
+		}
+	}
+
+	.accordion {
+		padding: 20px 25px;
+	}
+}
+
+@media (max-width: 460px) {
+	.big-title {
+		font-size: 26px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+

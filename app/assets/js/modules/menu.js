@@ -14,8 +14,10 @@ export default function (selectors) {
 			: hideItem(menuSelector, menuActiveClass);
 	})
 
-	menu.addEventListener('click', () => {
-		trigger.classList.toggle(triggerActiveClass);
-		hideItem(menuSelector, menuActiveClass)
+	menu.addEventListener('click', (e) => {
+		if (e.target === menu) {
+			trigger.classList.remove(triggerActiveClass);
+			hideItem(menuSelector, menuActiveClass);
+		}
 	});
 }

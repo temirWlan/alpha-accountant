@@ -4,17 +4,29 @@
 	}
 
 	.inner {
-		max-width: 90%;	
+		max-width: 100%;	
 	}
 }
 
 @media (max-width: 1200px) {
+	html, body {
+		font-size: 14px;
+	}
 	.header {
+		&__row {
+			&:first-child {
+				margin-bottom: 0;
+			}
+		}
 		&__image-block {
 			max-width: 220px;
 		}
 		&__nav {
+			margin-top: 0;
 			display: none;
+			&.nav--active {
+				display: flex;
+			}
 		}
 		.line {
 			display: none;
@@ -22,10 +34,536 @@
 	}
 
 	.connection {
+		.container {
+			max-width: 100%;
+		}
 		&__slide-paragraph {
 			&:not(:first-child) {
     		margin-top: 15px;
 			}
 		}
 	}
+
+	.achievements {
+		&__text {
+			margin-left: -8%;
+		}
+	}
+
+	.partners {
+		&__image-block {
+			&:before {
+				display: none;
+			}
+		}
+	}
+
+	.stages {
+		&__items {
+			&.row {
+
+			}
+		}
+		&__item {
+			max-width: 30%;
+			&:not(:first-child) {
+				margin-top: 15px;
+			}
+			&:after {
+				display: none;
+			}
+		}
+	}
+
+	.team {
+		&__wrapper {
+			padding: 8rem 0 7rem;
+		}
+		&__slide {
+			&-desc {
+				padding: 14px 20px 24px;
+			}
+		}
+	}
 }
+
+@media (max-width: 992px) {
+	.header {
+		&__image-block {
+			max-width: 150px;
+		}
+		&__phone {
+			font-size: 20px;
+		}
+	}
+
+	.connection {
+		&__slide {
+			min-height: 480px;
+			&-desc {
+				&.column {
+					align-items: flex-start;
+				}
+			}
+			&-title {
+				max-width: 80%;
+			}
+			&-bg {
+				object-fit: cover;
+			}
+		}
+	}
+
+	.tariffs {
+		margin-top: 3rem;
+		&__card {
+			&-wrapper {
+				padding: 70px;
+			}
+			&-image-block {
+				top: -44px;
+			}
+		}
+	}
+
+	.achievements {
+		&__items {
+			margin-top: 3rem;
+			&.row {
+				flex-wrap: wrap;
+				justify-content: flex-start;
+			}
+		}
+		&__item {
+			flex: 0 0 33.3%;
+			margin-top: 30px;
+			&:not(:first-child) {
+				margin: 30px 0 0;
+			}
+		}
+		&__image-block {
+			max-width: 240px;
+			&:after {
+				display: none;
+			}
+		}
+		&__column {
+			width: 30%;	
+		}
+	}
+
+	.stages {
+		margin-top: -12%;
+		&__wrapper {
+			padding: 12rem 0 4.5rem;
+		}
+		&__items {
+			&.row {
+				flex-direction: column;
+				align-items: center;
+			}
+		}
+		&__item {
+			max-width: 60%;
+			&:not(:first-child) {
+				margin-top: 25px;
+			}
+		}
+	}
+
+	.partners {
+		&__wrapper {
+			padding: 5rem 0;
+		}
+		&__image-block {
+			display: none;
+		}
+	}
+
+	.reviews {
+		margin-top: 5rem;
+		&:before {
+			display: none;
+		}
+		&__slide {
+			&:hover {
+				transform: scale(1);
+			}
+		}
+		.slider__btns {
+			height: 0;
+		}
+	}
+
+	.team {
+		&__wrapper {
+			padding: 5rem 0;
+		}
+		&__slider {
+			margin-top: 5rem;
+		}
+		&__slide {
+			min-height: 250px;
+			&-title {
+				font-size: 16px;
+			}
+		}
+	}
+
+	.footer {
+		&__inner {
+			.row {
+				&:first-child {
+					justify-content: center;
+					flex-wrap: wrap;
+				}
+			}
+		}
+		&__nav {
+			margin-left: auto;
+		}
+		&__map {
+			@include flex($justify: center);
+			flex: 0 0 100%;
+			> iframe {
+				margin: 30px auto 0;
+				width: 100%;
+				height: 300px;
+			}
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.header {
+		&__caption {
+			display: none;
+		}
+	}
+
+	.connection {
+		.slider {
+			&__btns {
+				height: 0;
+			}
+		}
+		&__slide {
+			&-desc {
+				margin-top: 8%;
+				padding: 30px 20px 30px 50px;
+				max-width: 100%;
+			}
+			&-btn {
+				margin-top: 25px;
+			}
+			&-icon {
+				display: none;
+			}
+		}
+	}
+
+	.tariffs {
+		&__card {
+			&-wrapper {
+				padding: 30px;
+			}
+			&-price {
+				margin-top: 4px;
+			}
+			&-image-block {
+				top: -23%;
+			}
+		}
+	}
+
+	.faq {
+		&:before {
+			transform: scale(0.8);
+		}
+		&__wrapper {
+			padding: 5rem 0;
+		}
+	}
+
+	.footer {
+		&__wrapper {
+			padding: 40px 0 30px;
+		}
+		&__row {
+			margin-top: 4rem;
+			&.row {
+				flex-wrap: wrap;
+			}
+		}
+		&__paragraph {
+			&:last-child {
+				margin-top: 15px;
+				flex: 1 0 100%;
+			}
+		}
+	}
+}
+
+@media (max-width: 660px) {
+	.connection {
+		&__slide {
+			&-desc {
+				margin-top: 5%;
+			}
+		}
+	}
+
+	.tariffs {
+		&__cards {
+			margin-top: 3rem;
+		}
+		&__card {
+			&-image-block {
+				display: none;
+			}
+			&-desc {
+				&.row {
+					flex-direction: column;
+				}
+			}
+			&-item {
+				max-width: 100%;
+				&:not(:first-child) {
+					margin-top: 20px;
+				}
+				&-text {
+					margin-top: 8px;
+				}
+			}
+			.line {
+				margin-top: 28px;
+			}
+		}
+	}
+
+	.achievements {
+		&__items {
+			margin-top: 2rem;
+		}
+		&__column {
+			width: 80%;
+		}
+		&__grid {
+			&.row {
+				flex-direction: column;
+				align-items: center;
+			}
+			&-item {
+				margin-top: 2rem;
+				flex: 0 0 50%;
+			}
+		}
+		&__image-block {
+			display: none;
+		}
+		&__text {
+			margin: 30px 0 0;
+		}
+		.line {
+			display: none;
+		}
+	}
+
+	.footer {
+		&__row {
+			margin-top: 3rem;
+			&.row {
+				flex-direction: column;
+				align-items: center;
+			}
+		}
+		&__paragraph {
+			margin-top: 15px;
+		}
+	}
+}
+
+@media (max-width: 600px) {
+	.team {
+		&__slide {
+			transform: scale(0.8);
+		}
+	}
+}
+
+@media (max-width: 576px) {
+	.connection {
+		&__slider {
+			&-btn {
+				display: none;
+			}
+		}
+		&__slide {
+			&-desc {
+				margin-top: 0;
+				padding: 20px 30px;
+			}
+			&-title {
+				max-width: 100%;
+			}
+		}
+	}
+
+	.tariffs {
+		&__cards {
+			margin-top: 2rem;
+		}
+	}
+
+	.achievements {
+		&__item {
+			flex: 0 0 50%;
+		}
+	}
+
+	.stages {
+		&__items {
+			margin-top: 3rem;
+		}
+		&__btn {
+			margin-top: 4rem;
+		}
+	}
+
+	.faq {
+		&__wrapper {
+			padding: 4rem 0;
+		}
+	}
+
+	.partners {
+		&__wrapper {
+			padding: 4rem 0;
+		}
+		&__slider {
+			margin-top: 2rem;
+			.slider__btns {
+				height: 0;
+			}
+		}
+	}
+
+	.team {
+		&:before {
+			display: none;
+		}
+		&__wrapper {
+			padding: 4rem 0 2rem;
+		}
+		&__slider {
+			margin-top: 2rem;
+		}
+	}
+
+	.footer {
+		&__image-block {
+			max-width: 200px;
+		}
+		&__map {
+			> iframe {
+				height: 250px;
+			}
+		}
+	}
+}
+
+@media (max-width: 460px) {
+	.header {
+		&__image-block {
+			max-width: 100px;
+		}
+		&__phone {
+			font-size: 18px;
+			> img {
+				display: none;
+			}
+		}
+	}
+
+	.footer {
+		&__image-block {
+			max-width: 160px;
+		}
+	}
+}
+
+@media (max-width: 400px) {
+	.connection {
+		&__slide {
+			min-height: 550px;
+		}
+	}
+
+	.team {
+		&__slide {
+			transform: scale(0.9);
+			box-shadow: none;
+		}
+	}
+
+	.footer {
+		&__image-block {
+			max-width: 80%;
+		}
+		&__nav {
+			display: none;
+		}
+	}
+}
+
+@media (max-width: 360px) {
+	.header {
+		&__image-block {
+			max-width: 80px;
+		}
+	}
+
+	.partners {
+		&__slider {
+			&-btn {
+				display: none;
+			}
+		}
+	}
+
+	.reviews {
+		&__slider {
+			&-btn {
+				display: none;
+			}
+		}
+	}
+
+	.team {
+		&__slider {
+			&-btn {
+				display: none;
+			}
+		}
+	}
+
+	.footer {
+		&__wrapper {
+			padding: 30px 0;
+		}
+		&__link {
+			text-align: center;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
